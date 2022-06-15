@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class products(models.Model):
+class Product(models.Model):
   name = models.CharField(max_length=120)
   image = models.ImageField(upload_to='products', default='no_picture.jpg')
   price = models.FloatField(help_text='in US dollars $')
@@ -9,4 +9,4 @@ class products(models.Model):
   updated = models.DateTimeField(auto_now = True)
   
   def __str__(self):
-    return f"{self.name} - {self.created.strftime('%d/%m%/Y')}"
+    return f"{self.name} : {self.created.strftime('%Y-%m-%d')}"
