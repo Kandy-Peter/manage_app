@@ -44,7 +44,9 @@ INSTALLED_APPS = [
     'reports',
     'sales',
     #crispy forms depndancy
-    'crispy_forms'
+    'crispy_forms',
+    #extnsions
+    'django_extensions'
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
