@@ -3,6 +3,7 @@ from products.models import Product
 from costumers.models import Customer
 from profiles.models import Profile
 from django.utils import timezone
+from django.shortcuts import reverse
 from .utils import generate_code
 
 # product times quantity(it will give some prices)
@@ -30,6 +31,9 @@ class Sale(models.Model):
   
   def __str__(self):
     return f"sals for the amount of ${self.total_price}"
+  
+  def get_absolute_url(self):
+    return reverse('sales:detail', kwargs={'pk': self.pk})
   
   def save(self, *args, **kwargs):
     if self.transaction_id == "":
