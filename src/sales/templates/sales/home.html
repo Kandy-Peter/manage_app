@@ -6,4 +6,11 @@ home
 
 {% block content %}
 {{hello}}
+
+<br>
+<br>
+<form action="" method="POST">
+  {% csrf_token %}
+  {{form}}
+</form>
 {% endblock content %}
