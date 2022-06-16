@@ -44,7 +44,9 @@ INSTALLED_APPS = [
     'reports',
     'sales',
     #crispy forms depndancy
-    'crispy_forms'
+    'crispy_forms',
+    #extnsions
+    'django_extensions'
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -130,11 +132,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES = [
+STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
-MEDIA_URL = './media'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR /'media'
 
 # Default primary key field type
