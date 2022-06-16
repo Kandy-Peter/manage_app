@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from .models import Sale
 
 # Create your views here.
@@ -12,4 +12,7 @@ class SaleListView(ListView):
   model = Sale
   template_name = 'sales/main.html'
   # I can object_context_name = "sale" and this will overide the 'object_list' in main.html
-  
+
+class SaleDetailsView(DetailView):
+  model = Sale
+  template_name = 'sales/detail.html'
