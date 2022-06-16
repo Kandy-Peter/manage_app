@@ -1,8 +1,8 @@
-from django.utils import timezone
 from django.db import models
 from products.models import Product
 from costumers.models import Customer
 from profiles.models import Profile
+from django.utils import timezone
 from .utils import generate_code
 
 # product times quantity(it will give some prices)
@@ -21,7 +21,7 @@ class Position(models.Model):
 # differents position for sales(tv. phone, pc, ect)
 class Sale(models.Model):
   transaction_id = models.CharField(max_length=12, blank=True)
-  positions = models.ManyToManyField(Product)
+  positions = models.ManyToManyField(Position)
   total_price = models.FloatField(blank=True, null=True)
   customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
   salesman = models.ForeignKey(Profile, on_delete=models.CASCADE)
@@ -38,7 +38,7 @@ class Sale(models.Model):
       self.created = timezone.now()
     return super().save(*args, **kwargs)
   
-  def get_postions(self):
+  def get_positions(self):
     return self.positions.all()
 class CSV(models.Model):
   file_name = models.FileField(upload_to="csvs")
